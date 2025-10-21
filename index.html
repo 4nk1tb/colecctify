@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50 dark:bg-gray-900">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>colecctify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <style>
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .aurora-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.3;
+        background: radial-gradient(ellipse at 20% 20%, #8b5cf6 0%, transparent 50%),
+                    radial-gradient(ellipse at 80% 30%, #3b82f6 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 80%, #10b981 0%, transparent 50%);
+        animation: aurora 60s ease-in-out infinite;
+      }
+      
+      @keyframes aurora {
+        0% {
+          transform: scale(1.2) rotate(0deg) translateX(0) translateY(0);
+          filter: blur(60px);
+        }
+        25% {
+          transform: scale(1.5) rotate(4deg) translateX(5vw) translateY(5vh);
+          filter: blur(70px);
+        }
+        50% {
+          transform: scale(1.8) rotate(-2deg) translateX(-10vw) translateY(-5vh);
+          filter: blur(80px);
+        }
+        75% {
+          transform: scale(1.4) rotate(5deg) translateX(10vw) translateY(10vh);
+          filter: blur(70px);
+        }
+        100% {
+          transform: scale(1.2) rotate(0deg) translateX(0) translateY(0);
+          filter: blur(60px);
+        }
+      }
+      .dark .aurora-background {
+        opacity: 0.2;
+      }
+      
+      .aurora-border {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem; /* 16px to match card */
+      }
+      .aurora-border::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), #8b5cf640, #3b82f630, transparent 80%);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: -1;
+      }
+      .aurora-border:hover::before {
+        opacity: 1;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-transparent text-gray-900 dark:text-gray-100 antialiased overflow-hidden">
+    <div class="aurora-background"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

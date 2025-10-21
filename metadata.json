@@ -1,0 +1,5 @@
+{
+  "name": "colecctify",
+  "description": "A premium, local-only PWA bookmark manager focused on collections, featuring an elegant, motion-rich, and translucent UI. Built with React, Tailwind CSS, and Framer Motion for an ultra-dynamic user experience.",
+  "requestFramePermissions": []
+}
